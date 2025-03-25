@@ -148,7 +148,7 @@ export default defineComponent({
   name: 'OrdersView',
   setup() {
     const userStore = useUserStore();
-    const isAuthenticated = computed(() => userStore.getAuthStatus.value);
+    const isAuthenticated = computed(() => userStore.getAuthStatus);
     
     const orders = ref<Order[]>([]);
     const filteredOrders = ref<Order[]>([]);

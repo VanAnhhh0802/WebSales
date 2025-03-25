@@ -174,16 +174,16 @@ export default defineComponent({
     const categoryShoes = computed(() => {
       if (category.value === 'nam' || category.value === 'nu' || category.value === 'tre-em') {
         // Đây là giả lập, trong ứng dụng thực tế sẽ cần phần backend để lọc theo giới tính
-        return shoes.value;
+        return shoes;
       } else {
         // Lọc theo category
-        return shoes.value.filter(shoe => shoe.category === category.value);
+        return shoes.filter(shoe => shoe.category === category.value);
       }
     });
     
     const brands = computed(() => {
       const uniqueBrands = new Set<string>();
-      categoryShoes.value.forEach(shoe => uniqueBrands.add(shoe.brand));
+      categoryShoes.value.forEach((shoe: Shoe) => uniqueBrands.add(shoe.brand));
       return Array.from(uniqueBrands).sort();
     });
     
@@ -191,7 +191,7 @@ export default defineComponent({
     const filteredShoes = ref<Shoe[]>([]);
     
     const filterShoes = () => {
-      filteredShoes.value = categoryShoes.value.filter(shoe => {
+      filteredShoes.value = categoryShoes.value.filter((shoe: Shoe) => {
         // Tìm kiếm theo tên
         const nameMatch = !searchQuery.value || 
           shoe.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||

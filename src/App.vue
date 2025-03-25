@@ -92,7 +92,7 @@ export default defineComponent({
     const shoeStore = useShoeStore();
     
     // Lấy số lượng sản phẩm trong giỏ hàng
-    const cartCount = computed(() => cartStore.getCartCount.value);
+    const cartCount = computed(() => cartStore.getCartCount);
     
     // Tải dữ liệu sản phẩm khi khởi động ứng dụng
     onMounted(async () => {

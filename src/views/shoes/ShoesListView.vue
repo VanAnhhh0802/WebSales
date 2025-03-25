@@ -168,7 +168,7 @@ export default defineComponent({
     // Derived data
     const brands = computed(() => {
       const uniqueBrands = new Set<string>();
-      shoes.value.forEach(shoe => uniqueBrands.add(shoe.brand));
+      shoes.forEach(shoe => uniqueBrands.add(shoe.brand));
       return Array.from(uniqueBrands).sort();
     });
     
@@ -182,7 +182,7 @@ export default defineComponent({
     const filteredShoes = ref<Shoe[]>([]);
     
     const filterShoes = () => {
-      filteredShoes.value = shoes.value.filter(shoe => {
+      filteredShoes.value = shoes.filter((shoe: Shoe) => {
         // Tìm kiếm theo tên
         const nameMatch = !searchQuery.value || 
           shoe.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||

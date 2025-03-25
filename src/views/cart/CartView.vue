@@ -44,7 +44,7 @@
                 :value="item.quantity" 
                 min="1" 
                 max="10"
-                @change="e => updateQuantity(item.id, parseInt(e.target.value, 10))"
+                @change="(e: Event) => updateQuantity(item.id, parseInt((e.target as HTMLInputElement).value, 10))"
               />
               <button 
                 class="quantity-btn" 
@@ -117,8 +117,8 @@ export default defineComponent({
     const shippingFee = ref(30000); // Phí vận chuyển mặc định
     
     // Lấy danh sách giỏ hàng từ store
-    const cartItems = computed(() => cartStore.getCartItems.value);
-    const cartTotal = computed(() => cartStore.getCartTotal.value);
+    const cartItems = computed(() => cartStore.getCartItems);
+    const cartTotal = computed(() => cartStore.getCartTotal);
     
     // Tính tổng đơn hàng (đã bao gồm phí vận chuyển và giảm giá)
     const orderTotal = computed(() => {

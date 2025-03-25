@@ -284,7 +284,7 @@ export default defineComponent({
     const userStore = useUserStore();
     const orderStore = useOrderStore();
     
-    const isAuthenticated = computed(() => userStore.getAuthStatus.value);
+    const isAuthenticated = computed(() => userStore.getAuthStatus);
     const order = ref<Order | null>(null);
     const loading = ref(true);
     

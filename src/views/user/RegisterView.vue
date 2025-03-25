@@ -154,8 +154,8 @@ export default defineComponent({
     // UI state
     const showPassword = ref(false);
     const showConfirmPassword = ref(false);
-    const isLoading = computed(() => userStore.getLoading.value);
-    const registerError = computed(() => userStore.getError.value);
+    const isLoading = computed(() => userStore.getLoading);
+    const registerError = computed(() => userStore.getError);
     const validationErrors = reactive<ValidationErrors>({});
     
     // Validate form

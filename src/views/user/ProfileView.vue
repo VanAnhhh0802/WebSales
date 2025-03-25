@@ -297,9 +297,9 @@ export default defineComponent({
     const userStore = useUserStore();
     
     // Auth state
-    const isAuthenticated = computed(() => userStore.getAuthStatus.value);
-    const userProfile = computed(() => userStore.getUserProfile.value);
-    const isLoading = computed(() => userStore.getLoading.value);
+    const isAuthenticated = computed(() => userStore.getAuthStatus);
+    const userProfile = computed(() => userStore.getUserProfile);
+    const isLoading = computed(() => userStore.getLoading);
     
     // UI state
     const activeTab = ref('profile');

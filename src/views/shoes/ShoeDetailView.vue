@@ -211,7 +211,7 @@ export default defineComponent({
     });
     
     const selectedShoe = computed(() => {
-      return shoeStore.getShoeById.value(shoeId.value);
+      return shoeStore.getShoeById(shoeId.value);
     });
     
     const discountedPrice = computed(() => {
@@ -238,8 +238,8 @@ export default defineComponent({
     const relatedProducts = computed(() => {
       if (!selectedShoe.value) return [];
       
-      return shoeStore.shoes.value
-        .filter(shoe => 
+      return shoeStore.shoes
+        .filter((shoe: Shoe) => 
           shoe.id !== selectedShoe.value?.id && 
           (shoe.brand === selectedShoe.value?.brand || 
           shoe.category === selectedShoe.value?.category)

@@ -358,8 +358,8 @@ export default defineComponent({
     const validationErrors = reactive<ValidationErrors>({});
     
     // Lấy thông tin giỏ hàng
-    const cartItems = computed(() => cartStore.getCartItems.value);
-    const cartTotal = computed(() => cartStore.getCartTotal.value);
+    const cartItems = computed(() => cartStore.getCartItems);
+    const cartTotal = computed(() => cartStore.getCartTotal);
     
     // Tính tổng đơn hàng
     const orderTotal = computed(() => {
